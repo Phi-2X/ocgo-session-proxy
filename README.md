@@ -189,6 +189,16 @@ ocgo-session-proxy listening on http://127.0.0.1:8787
 npm test          # 29 个用例：会话推导 + 代理端到端（本地 mock 上游，不外呼）
 ```
 
+`npm test` 只是运行 `node test/run.mjs`，由它 import 两个测试文件在同一进程里跑完。
+这样做是为了跨版本稳定：Node 的 CLI 测试发现机制在各版本之间并不一致
+（`node --test <目录>` 在 v21+ 会把目录当成文件、`--test-isolation` 是后来才稳定/更名的参数）。
+单独跑某一套也可以：
+
+```bash
+node test/session.test.mjs
+node test/proxy.test.mjs
+```
+
 覆盖：同会话跨轮同 id / 不同会话不同 id / system 每轮变化 / 历史窗口截断 / 分叉会话分离 /
 四种 API 形状 / 未知结构兜底 / TTL 与容量淘汰 / 状态持久化 / 头覆盖 / 路径归一化 /
 hop-by-hop 剥离 / UA 替换 / 上游错误透传 / **SSE 首块不被缓冲** / 413 / CORS 预检 / 诊断端点。
@@ -238,6 +248,7 @@ setups and diagnostics.
 | --- | --- |
 | `proxy.mjs` | 反向代理：监听、头改写、流式转发、日志、诊断端点 |
 | `session.mjs` | 会话身份：body 抽取、摘要、匹配、淘汰、持久化 |
+| `test/run.mjs` | 测试入口：`npm test` 运行它，由它 import 各测试套件 |
 | `test/session.test.mjs`、`test/proxy.test.mjs` | 单元与端到端测试（`node:test`，零依赖） |
 | `verify-live.mjs` | 用真实 key 验证网关不再报 `MissingSessionID` |
 | `start.cmd` / `start.sh` | 启动脚本 |

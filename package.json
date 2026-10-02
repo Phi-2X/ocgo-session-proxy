@@ -13,7 +13,7 @@
   },
   "scripts": {
     "start": "node proxy.mjs",
-    "test": "node --test --test-isolation=none \"test/*.test.mjs\""
+    "test": "node test/run.mjs"
   },
   "repository": {
     "type": "git",
