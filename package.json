@@ -1,0 +1,38 @@
+{
+  "name": "ocgo-session-proxy",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Local reverse proxy that stamps OpenCode Go requests with a per-conversation x-opencode-session header",
+  "type": "module",
+  "main": "proxy.mjs",
+  "bin": {
+    "ocgo-session-proxy": "proxy.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node proxy.mjs",
+    "test": "node --test --test-isolation=none \"test/*.test.mjs\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Phi-2X/ocgo-session-proxy.git"
+  },
+  "homepage": "https://github.com/Phi-2X/ocgo-session-proxy#readme",
+  "bugs": {
+    "url": "https://github.com/Phi-2X/ocgo-session-proxy/issues"
+  },
+  "author": "Phi-2X",
+  "keywords": [
+    "opencode",
+    "opencode-go",
+    "proxy",
+    "x-opencode-session",
+    "openai-compatible",
+    "anthropic-compatible",
+    "cherry-studio",
+    "astrbot"
+  ],
+  "license": "MIT"
+}

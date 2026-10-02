@@ -1,0 +1,5 @@
+# Keep the repository LF-normalised so the shell scripts stay executable on
+# Linux/macOS even when the working copy is checked out on Windows.
+* text=auto eol=lf
+*.cmd text eol=crlf
+*.bat text eol=crlf

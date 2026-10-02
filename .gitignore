@@ -1,0 +1,19 @@
+# Dependencies (this project has none, but keep any accidental install out of git)
+node_modules/
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# Local runtime artefacts
+*.log
+.ocgo-*.json
+ocgo-state.json
+_state-check.json
+
+# Editors and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
